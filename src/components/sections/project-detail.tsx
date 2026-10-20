@@ -135,13 +135,13 @@ export function ProjectDetail({ project }: { project: Project }) {
       <Section width="wide" spacing="tight">
         <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
           <div className="lg:col-span-7">
-            <Eyebrow>Overview</Eyebrow>
+            <Eyebrow as="h2">Overview</Eyebrow>
             <Prose paragraphs={project.overview} lead className="mt-6" />
           </div>
 
           <aside className="flex flex-col gap-10 lg:col-span-5">
             <div>
-              <Eyebrow>Stack</Eyebrow>
+              <Eyebrow as="h2">Stack</Eyebrow>
               <ul className="mt-5 flex flex-wrap gap-2">
                 {project.stack.map((item) => (
                   <li
@@ -155,7 +155,7 @@ export function ProjectDetail({ project }: { project: Project }) {
             </div>
 
             <div>
-              <Eyebrow>Focus areas</Eyebrow>
+              <Eyebrow as="h2">Focus areas</Eyebrow>
               <ul className="mt-5 flex flex-wrap gap-2">
                 {project.tags.map((tag) => (
                   <li
@@ -173,7 +173,7 @@ export function ProjectDetail({ project }: { project: Project }) {
 
       {project.highlights.length > 0 ? (
         <Section width="wide" className="bg-surface-muted/40">
-          <Eyebrow className="mb-10">What made it work</Eyebrow>
+          <Eyebrow as="h2" className="mb-10">What made it work</Eyebrow>
           <Stagger
             as="ul"
             className="grid gap-5 sm:gap-6 lg:grid-cols-3 lg:gap-8"
@@ -199,7 +199,7 @@ export function ProjectDetail({ project }: { project: Project }) {
 
       {project.gallery.length > 0 ? (
         <Section width="wide" spacing="tight">
-          <Eyebrow className="mb-10">Gallery</Eyebrow>
+          <Eyebrow as="h2" className="mb-10">Gallery</Eyebrow>
           <Stagger as="ul" className="grid gap-5 sm:gap-6 lg:grid-cols-2">
             {project.gallery.map((image) => (
               <StaggerItem as="li" key={image.src}>

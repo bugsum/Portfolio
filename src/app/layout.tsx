@@ -28,6 +28,8 @@ const mono = Geist_Mono({
 
 export const metadata = buildMetadata();
 
+export const ensureStatic = "navigation";
+
 export const viewport: Viewport = {
   themeColor: [
     { media: "(prefers-color-scheme: light)", color: "#fdfcff" },

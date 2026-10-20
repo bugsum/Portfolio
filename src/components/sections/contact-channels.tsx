@@ -46,7 +46,11 @@ export function ContactChannels() {
             </Reveal>
           </div>
 
-          <Stagger as="ul" delay={0.2} className="flex flex-col gap-5 lg:col-span-7">
+          <div className="flex flex-col gap-6 lg:col-span-7">
+            <h2 className="font-display text-2xl text-foreground">
+              Ways to reach me
+            </h2>
+            <Stagger as="ul" delay={0.2} className="flex flex-col gap-5">
             {contact.channels.map((channel) => (
               <StaggerItem as="li" key={channel.id} className="flex">
                 <Card interactive className="group w-full">
@@ -89,7 +93,8 @@ export function ContactChannels() {
                 </Card>
               </StaggerItem>
             ))}
-          </Stagger>
+            </Stagger>
+          </div>
         </div>
       </Container>
     </section>

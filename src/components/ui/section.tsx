@@ -37,6 +37,7 @@ export function Section({
 type SectionHeaderProps = {
   eyebrow?: string;
   title: string;
+  as?: "h1" | "h2";
   description?: string;
   align?: "start" | "center";
   className?: string;
@@ -46,11 +47,14 @@ type SectionHeaderProps = {
 export function SectionHeader({
   eyebrow,
   title,
+  as = "h2",
   description,
   align = "start",
   className,
   action,
 }: SectionHeaderProps) {
+  const Heading = as;
+
   return (
     <div
       className={cn(
@@ -66,9 +70,14 @@ export function SectionHeader({
         )}
       >
         {eyebrow ? <Eyebrow>{eyebrow}</Eyebrow> : null}
-        <h2 className="font-display text-display-sm text-balance text-foreground">
+        <Heading
+          className={cn(
+            "font-display text-balance text-foreground",
+            as === "h1" ? "text-display-md" : "text-display-sm",
+          )}
+        >
           {title}
-        </h2>
+        </Heading>
         {description ? (
           <p className="max-w-prose text-lg text-pretty text-foreground-muted">
             {description}
@@ -82,19 +91,23 @@ export function SectionHeader({
 
 export function Eyebrow({
   children,
+  as = "p",
   className,
 }: {
   children: React.ReactNode;
+  as?: "p" | "h2" | "h3";
   className?: string;
 }) {
+  const Tag = as;
+
   return (
-    <p
+    <Tag
       className={cn(
         "font-mono text-2xs uppercase text-foreground-muted",
         className,
       )}
     >
       {children}
-    </p>
+    </Tag>
   );
 }

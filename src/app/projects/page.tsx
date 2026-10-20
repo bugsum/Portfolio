@@ -17,6 +17,7 @@ export default function ProjectsPage() {
       <Section width="wide" className="pt-32 pb-12 sm:pt-40 lg:pt-48">
         <SectionHeader
           eyebrow="Projects"
+          as="h1"
           title="Things I have built, and what came of them"
           description="Six projects, mostly platform and developer tooling. Each one lists what the problem was, the approach I took and the measured result, including the one I have since archived."
         />

@@ -103,9 +103,9 @@
 
   --ink: oklch(21% 0.022 var(--hue-brand));
   --ink-muted: oklch(50% 0.018 var(--hue-brand));
-  --ink-faint: oklch(64% 0.013 var(--hue-brand));
+  --ink-faint: oklch(54% 0.013 var(--hue-brand));
 
-  --brand: oklch(55% 0.205 var(--hue-brand));
+  --brand: oklch(53% 0.205 var(--hue-brand));
   --brand-hover: oklch(49% 0.215 var(--hue-brand));
   --brand-ink: oklch(99% 0.01 var(--hue-brand));
   --brand-subtle: oklch(96% 0.032 var(--hue-brand));
@@ -113,7 +113,7 @@
   --accent: oklch(70% 0.135 var(--hue-accent));
   --accent-subtle: oklch(96% 0.038 var(--hue-accent));
 
-  --ring: oklch(55% 0.205 var(--hue-brand) / 0.35);
+  --ring: oklch(53% 0.205 var(--hue-brand) / 0.35);
   --shadow-tint: 272 32% 14%;
 }
 
@@ -128,7 +128,7 @@
 
   --ink: oklch(96% 0.008 var(--hue-brand));
   --ink-muted: oklch(72% 0.017 var(--hue-brand));
-  --ink-faint: oklch(56% 0.017 var(--hue-brand));
+  --ink-faint: oklch(61.5% 0.017 var(--hue-brand));
 
   --brand: oklch(73% 0.155 var(--hue-brand));
   --brand-hover: oklch(79% 0.145 var(--hue-brand));
