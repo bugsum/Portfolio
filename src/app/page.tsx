@@ -1,40 +1,38 @@
-import { Badge, Dot } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
-import { Icon } from "@/components/ui/icon";
+import { Reveal } from "@/components/motion/reveal";
+import { Stagger, StaggerItem } from "@/components/motion/stagger";
+import { TextReveal } from "@/components/motion/text-reveal";
+import { HoverLift } from "@/components/motion/hover-lift";
 import { ProjectCard } from "@/components/ui/project-card";
-import { Prose } from "@/components/ui/prose";
-import { Section, SectionHeader } from "@/components/ui/section";
-import { SocialLinks } from "@/components/ui/social-links";
+import { Section, Eyebrow } from "@/components/ui/section";
 import { featuredProjects } from "@/lib/projects";
 import { profile } from "@/content/profile";
 
 export default function HomePage() {
   return (
     <Section>
-      <SectionHeader
-        eyebrow="Primitives"
-        title="UI primitives smoke test"
-        description={profile.bio.short}
-        action={<Button href="/projects" icon="arrowRight">All projects</Button>}
+      <Eyebrow>Motion smoke test</Eyebrow>
+      <TextReveal
+        text={profile.headline}
+        as="h1"
+        className="mt-6 font-display text-display-lg text-balance text-foreground"
       />
-      <div className="flex flex-wrap items-center gap-3">
-        <Badge tone="brand">
-          <Dot />
-          Badge
-        </Badge>
-        <Icon name="terminal" className="size-6 text-brand" />
-        <Button variant="secondary" icon="github" iconPosition="start">
-          Secondary
-        </Button>
-        <Button variant="ghost">Ghost</Button>
-        <SocialLinks />
-      </div>
-      <Prose paragraphs={profile.bio.long.slice(0, 2)} lead className="mt-12" />
-      <div className="mt-12 grid gap-5 sm:gap-6 lg:grid-cols-3 lg:gap-8">
+      <Reveal delay={0.2} className="mt-8">
+        <p className="max-w-prose text-lg text-foreground-muted">
+          {profile.bio.short}
+        </p>
+      </Reveal>
+      <Stagger
+        as="ul"
+        className="mt-16 grid gap-5 sm:gap-6 lg:grid-cols-3 lg:gap-8"
+      >
         {featuredProjects.map((project) => (
-          <ProjectCard key={project.slug} project={project} />
+          <StaggerItem as="li" key={project.slug}>
+            <HoverLift className="h-full">
+              <ProjectCard project={project} className="h-full" />
+            </HoverLift>
+          </StaggerItem>
         ))}
-      </div>
+      </Stagger>
     </Section>
   );
 }
