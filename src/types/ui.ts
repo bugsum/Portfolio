@@ -1,0 +1,41 @@
+export type IconName =
+  | "arrowRight"
+  | "arrowUpRight"
+  | "arrowLeft"
+  | "briefcase"
+  | "calendar"
+  | "chatCircle"
+  | "check"
+  | "code"
+  | "cloud"
+  | "copy"
+  | "cube"
+  | "database"
+  | "dribbble"
+  | "envelope"
+  | "gauge"
+  | "github"
+  | "graduationCap"
+  | "lightning"
+  | "linkedin"
+  | "list"
+  | "mapPin"
+  | "moon"
+  | "package"
+  | "palette"
+  | "rocket"
+  | "rss"
+  | "shieldCheck"
+  | "sparkle"
+  | "sun"
+  | "terminal"
+  | "testTube"
+  | "users"
+  | "wrench"
+  | "x"
+  | "xLogo";
+
+export type ButtonVariant = "primary" | "secondary" | "ghost";
+export type ButtonSize = "sm" | "md" | "lg";
+export type BadgeTone = "neutral" | "brand" | "accent" | "success" | "warning";
+export type SectionSpacing = "default" | "tight" | "none";
