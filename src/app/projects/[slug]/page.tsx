@@ -2,7 +2,7 @@ import { Suspense } from "react";
 import { notFound } from "next/navigation";
 import { getProject, projectSlugs } from "@/lib/projects";
 import { buildMetadata } from "@/lib/metadata";
-import { Section, SectionHeader } from "@/components/ui/section";
+import { ProjectDetail } from "@/components/sections/project-detail";
 import { ProjectDetailSkeleton } from "@/components/ui/skeletons";
 
 export function generateStaticParams() {
@@ -15,6 +15,7 @@ export async function generateMetadata({
   const { slug } = await params;
   const project = getProject(slug);
   if (!project) return buildMetadata({ title: "Project not found" });
+
   return buildMetadata({
     title: project.title,
     description: project.summary,
@@ -37,9 +38,5 @@ async function ProjectBody({
   const project = getProject(slug);
   if (!project) notFound();
 
-  return (
-    <Section>
-      <SectionHeader eyebrow="Stub" title={project.title} />
-    </Section>
-  );
+  return <ProjectDetail project={project} />;
 }
