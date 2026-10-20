@@ -1,9 +1,13 @@
-import { Section, SectionHeader } from "@/components/ui/section";
+import { ContactChannels } from "@/components/sections/contact-channels";
+import { buildMetadata } from "@/lib/metadata";
+import { contact } from "@/content/contact";
 
-export default function Page() {
-  return (
-    <Section>
-      <SectionHeader eyebrow="Stub" title="contact" />
-    </Section>
-  );
+export const metadata = buildMetadata({
+  title: "Contact",
+  description: contact.description,
+  path: "/contact",
+});
+
+export default function ContactPage() {
+  return <ContactChannels />;
 }

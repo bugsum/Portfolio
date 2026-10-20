@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { profile } from "@/content/profile";
 import { Button } from "@/components/ui/button";
 import { Container } from "@/components/ui/container";
@@ -32,7 +33,17 @@ export function Bio() {
               </Button>
             ) : null}
           </Reveal>
-          <Reveal delay={0.3} className="lg:col-span-5">
+          <Reveal delay={0.3} className="flex flex-col gap-8 lg:col-span-5">
+            <div className="relative aspect-square overflow-hidden rounded-3xl border border-border bg-surface-muted shadow-lift">
+              <Image
+                src={profile.avatar.src}
+                alt={profile.avatar.alt}
+                fill
+                priority
+                sizes="(min-width: 1024px) 28rem, 100vw"
+                className="object-cover"
+              />
+            </div>
             <dl className="divide-y divide-border overflow-hidden rounded-2xl border border-border bg-surface">
               {profile.stats.map((stat) => (
                 <div

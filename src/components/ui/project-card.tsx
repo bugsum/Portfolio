@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { Badge, Dot } from "@/components/ui/badge";
 import { Card, CardBody, CardTitle } from "@/components/ui/card";
@@ -26,6 +27,15 @@ export function ProjectCard({
 }) {
   return (
     <Card interactive className={cn("group", className)}>
+      <div className="relative aspect-16/10 overflow-hidden border-b border-border bg-surface-muted">
+        <Image
+          src={project.cover.src}
+          alt={project.cover.alt}
+          fill
+          sizes="(min-width: 1024px) 24rem, (min-width: 640px) 50vw, 100vw"
+          className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+        />
+      </div>
       <CardBody className="gap-5">
         <div className="flex items-center justify-between gap-4">
           <Badge tone={statusTone[project.status]}>

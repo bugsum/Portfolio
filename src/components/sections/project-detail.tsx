@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { Badge, Dot } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -9,6 +10,7 @@ import { Eyebrow, Section } from "@/components/ui/section";
 import { Reveal } from "@/components/motion/reveal";
 import { Stagger, StaggerItem } from "@/components/motion/stagger";
 import { TextReveal } from "@/components/motion/text-reveal";
+import { ProjectJsonLd } from "@/components/seo/json-ld";
 import { getAdjacentProjects } from "@/lib/projects";
 import type { IconName } from "@/types/ui";
 import type { Project, ProjectLinkKind, ProjectStatus } from "@/types/content";
@@ -37,6 +39,7 @@ export function ProjectDetail({ project }: { project: Project }) {
 
   return (
     <>
+      <ProjectJsonLd project={project} />
       <section className="pt-32 pb-16 sm:pt-40 lg:pt-48">
         <Container width="wide">
           <Reveal y={10}>
@@ -114,6 +117,21 @@ export function ProjectDetail({ project }: { project: Project }) {
         </Container>
       </section>
 
+      <Container width="wide">
+        <Reveal delay={0.2}>
+          <div className="relative aspect-16/10 overflow-hidden rounded-2xl border border-border bg-surface-muted shadow-lift">
+            <Image
+              src={project.cover.src}
+              alt={project.cover.alt}
+              fill
+              priority
+              sizes="(min-width: 1280px) 76rem, 100vw"
+              className="object-cover"
+            />
+          </div>
+        </Reveal>
+      </Container>
+
       <Section width="wide" spacing="tight">
         <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
           <div className="lg:col-span-7">
@@ -173,6 +191,32 @@ export function ProjectDetail({ project }: { project: Project }) {
                     </p>
                   </CardBody>
                 </Card>
+              </StaggerItem>
+            ))}
+          </Stagger>
+        </Section>
+      ) : null}
+
+      {project.gallery.length > 0 ? (
+        <Section width="wide" spacing="tight">
+          <Eyebrow className="mb-10">Gallery</Eyebrow>
+          <Stagger as="ul" className="grid gap-5 sm:gap-6 lg:grid-cols-2">
+            {project.gallery.map((image) => (
+              <StaggerItem as="li" key={image.src}>
+                <figure className="flex flex-col gap-3">
+                  <div className="relative aspect-16/10 overflow-hidden rounded-xl border border-border bg-surface-muted">
+                    <Image
+                      src={image.src}
+                      alt={image.alt}
+                      fill
+                      sizes="(min-width: 1024px) 36rem, 100vw"
+                      className="object-cover"
+                    />
+                  </div>
+                  <figcaption className="text-sm text-foreground-muted">
+                    {image.alt}
+                  </figcaption>
+                </figure>
               </StaggerItem>
             ))}
           </Stagger>
